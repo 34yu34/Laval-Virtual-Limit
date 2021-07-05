@@ -104,5 +104,6 @@ public class Tape : MonoBehaviour
         _state = TapingState.Stoped;
 
         box.ChangeStateTaped();
+        box.Priceable.SetTapedBoxPrice();
     }
 }

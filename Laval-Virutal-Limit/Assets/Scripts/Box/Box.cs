@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Sizeable))]
+[RequireComponent(typeof(Priceable))]
 public class Box : MonoBehaviour
 {
     private BoxState _state;
@@ -25,6 +26,9 @@ public class Box : MonoBehaviour
     private Sizeable _sizeable;
     public Sizeable Sizeable => _sizeable ??= GetComponent<Sizeable>();
 
+    private Priceable _priceable;
+
+    public Priceable Priceable => _priceable ??= GetComponent<Priceable>();
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +40,6 @@ public class Box : MonoBehaviour
 
         set_position_box();
         _state = BoxState.opened;
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
     }
 
     public void ChangeStateClosed()
