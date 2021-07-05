@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // is throwable and frozen, but when taken, duplicate itself.
+[RequireComponent(typeof(Valve.VR.InteractionSystem.Throwable))]
 public class Duplicator : MonoBehaviour
 {
     private Rigidbody _rb;
