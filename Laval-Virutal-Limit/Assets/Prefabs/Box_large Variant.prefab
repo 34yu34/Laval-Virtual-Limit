@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2258915961268620006, guid: ee1eefed7cb6c84478ffc6685aff4988, type: 3}
+      propertyPath: _sell_price
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258915961268620006, guid: ee1eefed7cb6c84478ffc6685aff4988, type: 3}
+      propertyPath: _spawn_price
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3501790491955996525, guid: ee1eefed7cb6c84478ffc6685aff4988, type: 3}
       propertyPath: m_Name
       value: Box_large Variant

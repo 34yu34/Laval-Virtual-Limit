@@ -210,8 +210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bee666830186f489589f8fd1c994f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawn_price: 0
-  _sell_price: 0
+  _untaped_box_rate: 0.75
+  _taped_box_profit_rate: 0.1
+  _spawn_price: 167
+  _sell_price: 86
 --- !u!114 &4012478391912945773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1e7001f7c7cf5419b47934d4a19540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: 0
+  _size: 2
 --- !u!1001 &3561075694023252535
 PrefabInstance:
   m_ObjectHideFlags: 0

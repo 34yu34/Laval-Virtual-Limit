@@ -64,6 +64,6 @@ public class Boxing : MonoBehaviour
 
         _box.ChangeStateClosed();
 
-        _box.Priceable.SetOpenBoxPrice(_current_boxable.Priceable.SellPrice);
+        _box.Priceable.SetOpenBoxPrice(_current_boxable.Priceable.SpawnPrice);
     }
 }

@@ -690,7 +690,7 @@ PrefabInstance:
     - target: {fileID: 3059697596025101763, guid: cac3a660a3080da498d597fce9dc3af5, type: 3}
       propertyPath: _wrappable_to_spawn.Array.data[0]
       value: 
-      objectReference: {fileID: 1740229140699474888, guid: 809f0ecfb103b7b48a0ae995c98fad1c, type: 3}
+      objectReference: {fileID: 1722175739772891466, guid: c146b6d46569506409f560f03bc4dbe0, type: 3}
     - target: {fileID: 3910697221065122624, guid: cac3a660a3080da498d597fce9dc3af5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2
