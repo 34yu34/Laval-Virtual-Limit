@@ -6,6 +6,7 @@ using Valve.VR.InteractionSystem;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Throwable))]
+[RequireComponent(typeof(Priceable))]
 public class Wrappable : MonoBehaviour
 {
     readonly float RELEASE_DISTANCE = 0.4f;
@@ -17,6 +18,10 @@ public class Wrappable : MonoBehaviour
     private Rigidbody _rigidbody;
 
     private Rigidbody Rigidbody => _rigidbody ??= GetComponent<Rigidbody>();
+
+    private Priceable _priceable;
+
+    public Priceable Priceable => _priceable ??= GetComponent<Priceable>();
 
     private bool _is_in_hand;
 

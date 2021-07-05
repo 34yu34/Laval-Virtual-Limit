@@ -22,6 +22,8 @@ public class Destroyer : BeltBehaviour
         {
             if (pad.Link != null)
             {
+                MoneyManager.Instance.Sell(pad.Link.Wrappable.Priceable.SellPrice);
+
                 pad.Link.Wrappable.Kill();
                 pad.Link.Disconnect();
             }

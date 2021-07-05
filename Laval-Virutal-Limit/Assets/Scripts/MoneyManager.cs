@@ -2,8 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class money_manager : MonoBehaviour
+public class MoneyManager : MonoBehaviour
 {
+
+    private static MoneyManager __instance;
+
+    public static MoneyManager Instance
+    {
+        get
+        {
+            if (__instance == null)
+            {
+                __instance = FindObjectOfType<MoneyManager>();
+
+                if (__instance == null)
+                {
+                    Debug.LogError("there is an instance of money manager missing");
+                }
+            }
+
+            return __instance;
+        }
+    }
 
     [SerializeField]
     private TextMesh text;
