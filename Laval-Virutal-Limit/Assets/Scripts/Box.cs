@@ -54,5 +54,6 @@ public class Box : MonoBehaviour
         _current_box.transform.parent = gameObject.transform;
         _current_box.transform.localPosition = Vector3.zero;
         _current_box.transform.localRotation = Quaternion.identity;
+        _current_box.transform.localScale = Vector3.one;
     }
 }

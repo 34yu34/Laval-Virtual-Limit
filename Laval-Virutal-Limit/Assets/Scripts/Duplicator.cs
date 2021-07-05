@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 // is throwable and frozen, but when taken, duplicate itself.
-[RequireComponent(typeof(Valve.VR.InteractionSystem.Throwable))]
+[RequireComponent(typeof(Throwable))]
 public class Duplicator : MonoBehaviour
 {
     private Rigidbody _rb;
@@ -13,10 +14,28 @@ public class Duplicator : MonoBehaviour
 
     public void Start()
     {
-        init_pos = transform.position;
-        init_rot = transform.rotation;
+        setup_initial_transform();
+        setup_rb();
+        set_callbacks();
+    }
+
+    private void setup_rb()
+    {
         _rb = GetComponent<Rigidbody>();
         _rb.isKinematic = true;
+    }
+
+    private void setup_initial_transform()
+    {
+        init_pos = transform.position;
+        init_rot = transform.rotation;
+    }
+
+    private void set_callbacks()
+    {
+        var throwable_comp = GetComponent<Throwable>();
+        throwable_comp.onPickUp.AddListener(OnGrab);
+        throwable_comp.onDetachFromHand.AddListener(OnDrop);
     }
 
     public void OnGrab()
