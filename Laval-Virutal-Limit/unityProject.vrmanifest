@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.lavalvirutallimit.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\thread\\docu\\games\\game-jam\\Laval-Virtual-Limit\\Laval-Virutal-Limit\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Laval-Virutal-Limit [Testing]"
+        }
+      }
+    }
+  ]
+}

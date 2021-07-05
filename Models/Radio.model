@@ -1,0 +1,32 @@
+# Made using Asset Forge (2.1.2)
+
+:materials
+
+[name:_defaultMat;color:RGBA(0.939, 0.953, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:dark;color:RGBA(0.224, 0.235, 0.275, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+[name:metalLight;color:RGBA(0.698, 0.686, 0.867, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:glass;color:RGBA(1.000, 1.000, 1.000, 1.000);scale:(1.0, 1.0);shader:Unlit;]
+[name:tan;color:RGBA(0.933, 0.835, 0.663, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+[name:steel;color:RGBA(0.311, 0.309, 0.340, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:metalPurple;color:RGBA(0.498, 0.404, 0.933, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+[name:metalDark;color:RGBA(0.400, 0.388, 0.647, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.5;]
+[name:metal;color:RGBA(0.580, 0.569, 0.769, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:custom9;color:RGBA(0.267, 0.620, 0.690, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+[name:custom10;color:RGBA(0.725, 0.341, 0.082, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+[name:custom11;color:RGBA(0.973, 0.941, 0.208, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+
+:models
+
+[name:;collection:Primitives;type:cylinderSquare;position:(0.0000, 0.6120, -0.1500);rotation:(90.0000, 0.0000, 0.0000);scale:(2.8080, 0.4480, 1.2240);group:;locked:False;hidden:False;materials:custom10;]
+[name:;collection:Trains;type:detail_light;position:(-0.8600, 1.2600, 0.2700);rotation:(270.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:dark+dark+custom11;]
+[name:;collection:Trains;type:detail_fence_support;position:(0.0050, 1.1900, -0.5000);rotation:(0.0000, 270.0000, 0.0000);scale:(1.0000, 1.3500, 1.2100);group:;locked:False;hidden:False;materials:dark;]
+[name:;collection:Swords;type:guard_round;position:(0.0012, 1.2068, 0.1451);rotation:(0.0000, 0.0000, 0.0000);scale:(0.4116, 0.6318, 0.3870);group:;locked:False;hidden:False;materials:custom9;]
+[name:;collection:Swords;type:guard_round;position:(-0.3000, 1.2100, 0.1500);rotation:(0.0000, 0.0000, 0.0000);scale:(0.4116, 0.6318, 0.3870);group:;locked:False;hidden:False;materials:custom9;]
+[name:;collection:Swords;type:guard_round;position:(0.3000, 1.2100, 0.1500);rotation:(0.0000, 0.0000, 0.0000);scale:(0.4116, 0.6318, 0.3870);group:;locked:False;hidden:False;materials:custom9;]
+[name:;collection:Aircraft;type:engine_round;position:(-0.7000, 0.1000, 0.2500);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 0.3000);group:;locked:False;hidden:False;materials:dark+metalPurple+custom9;]
+[name:;collection:Aircraft;type:engine_round;position:(0.7000, 0.1000, 0.2500);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 0.3000);group:;locked:False;hidden:False;materials:dark+metalPurple+custom9;]
+[name:;collection:Greebles;type:detail_panelsC;position:(0.0000, 0.8000, 0.3000);rotation:(90.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:custom11;]
+[name:;collection:Greebles;type:detail_panelBoltsSmall;position:(0.0000, 0.2000, 0.3000);rotation:(90.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:custom11+dark;]
+[name:;collection:Blasters;type:attachment_barrelThin;position:(1.0175, 1.3584, 0.2376);rotation:(303.2259, 118.1868, 245.8539);scale:(0.1400, 0.1400, 0.3200);group:;locked:False;hidden:False;materials:dark;]
+[name:;collection:Blasters;type:attachment_barrelThin;position:(1.1738, 1.6292, 0.1683);rotation:(303.2259, 118.1868, 245.8539);scale:(0.1575, 0.1575, 0.3200);group:;locked:False;hidden:False;materials:dark;]
+[name:;collection:Blasters;type:attachment_barrelEnd;position:(1.3070, 1.8599, 0.1114);rotation:(303.2259, 118.1868, 245.8539);scale:(0.1750, 0.1750, 0.2240);group:;locked:False;hidden:False;materials:dark;]
