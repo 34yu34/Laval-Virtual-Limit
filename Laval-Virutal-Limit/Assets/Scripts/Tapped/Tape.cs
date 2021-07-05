@@ -4,6 +4,7 @@ using UnityEngine;
 using Valve.VR.InteractionSystem;
 
 [RequireComponent(typeof(Throwable))]
+[RequireComponent(typeof(AudioSource))]
 public class Tape : MonoBehaviour
 {
     [SerializeField]
@@ -27,7 +28,9 @@ public class Tape : MonoBehaviour
     public Rigidbody Rb => _rb ??= GetComponent<Rigidbody>();
 
     public Vector3 initial_pos;
-    public Quaternion intial_rotation; 
+    public Quaternion intial_rotation;
+
+    AudioSource audioData;
 
     public enum TapingState
     {
@@ -42,7 +45,8 @@ public class Tape : MonoBehaviour
 
         Rb.constraints = RigidbodyConstraints.FreezeAll;
         Throwable.onDetachFromHand.AddListener(detach_from_hand);
-        
+
+        audioData = GetComponent<AudioSource>();
     }
 
     private void detach_from_hand()
@@ -94,6 +98,8 @@ public class Tape : MonoBehaviour
         _tape_timestamp = Time.fixedTime + _max_tape_time;
 
         reset_line_position();
+
+        audioData.Play();
     }
 
     private void reset_line_position()
