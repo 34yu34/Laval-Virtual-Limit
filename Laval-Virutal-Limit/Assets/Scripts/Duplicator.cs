@@ -55,12 +55,12 @@ public class Duplicator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<HandCollider>() == null)
+        if (other.GetComponentInParent<HandCollider>() == null && other.GetComponentInParent<Box>() == null)
         {
             return;
         }
         n_colliders_in++;
-        if( n_colliders_in != 1)
+        if( n_colliders_in != 1 || other.GetComponentInParent<Box>() != null)
         {
             return;
         }
@@ -69,7 +69,7 @@ public class Duplicator : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponentInParent<HandCollider>() == null)
+        if (other.GetComponentInParent<HandCollider>() == null && other.GetComponentInParent<Box>() == null)
         {
             return;
         }
