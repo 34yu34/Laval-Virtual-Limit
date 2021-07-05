@@ -93,7 +93,11 @@ PrefabInstance:
       objectReference: {fileID: 3910697222114776807}
     - target: {fileID: 2314764803625948868, guid: 155fccdc94923bb41b7429ffa97bdab0, type: 3}
       propertyPath: _speed
-      value: 0.4
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314764803625948868, guid: 155fccdc94923bb41b7429ffa97bdab0, type: 3}
+      propertyPath: _time_between_spawn
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2314764803625948869, guid: 155fccdc94923bb41b7429ffa97bdab0, type: 3}
       propertyPath: m_RootOrder
