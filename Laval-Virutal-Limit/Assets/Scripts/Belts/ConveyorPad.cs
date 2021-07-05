@@ -7,6 +7,8 @@ public class ConveyorPad : MonoBehaviour
 {
     public float Speed { get; set; }
 
+    public WrappableLink Link { get; set; }
+
     private Vector3 direction;
 
     readonly float DISTANCE_CHECK = 0.01f;
@@ -28,7 +30,8 @@ public class ConveyorPad : MonoBehaviour
 
     private void advance()
     {
-        transform.position += Speed * direction * Time.fixedDeltaTime;
+        Vector3 movement = Speed * direction * Time.fixedDeltaTime;
+        transform.position += movement;
     }
 
     public void SetNextDestination(Vector3 destination)

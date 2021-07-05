@@ -20,8 +20,12 @@ public class Destroyer : BeltBehaviour
         ConveyorPad pad = other.GetComponent<ConveyorPad>();
         if (pad != null)
         {
+            if (pad.Link != null)
+            {
+                pad.Link.Wrappable.Kill();
+                pad.Link.Disconnect();
+            }
             Destroy(pad.gameObject);
         }
     }
-
 }

@@ -15,6 +15,8 @@ public class ConveyorSpawner : MonoBehaviour
     [SerializeField]
     private float _speed;
 
+    public Wrappable ItemToSpawn { get; set; }
+
     private Rotator _rotator;
 
     public Rotator Rotator => _rotator ??= GetComponent<Rotator>();
@@ -44,5 +46,14 @@ public class ConveyorSpawner : MonoBehaviour
         pad.transform.position = transform.position;
 
         pad.SetNextDestination(Rotator.Destination);
+
+        if (ItemToSpawn != null)
+        {
+            var wrappable =  Instantiate(ItemToSpawn);
+
+            wrappable.AddOnBelt(pad);
+
+            ItemToSpawn = null;
+        }
     }
 }
