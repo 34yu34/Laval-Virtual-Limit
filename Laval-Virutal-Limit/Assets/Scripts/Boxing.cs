@@ -7,6 +7,7 @@ using UnityEngine;
 public class Boxing : MonoBehaviour
 {
     private Box _box;
+    private Boxable _current_boxable;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +29,34 @@ public class Boxing : MonoBehaviour
         Boxable boxable = other.gameObject.GetComponent<Boxable>();
         if (boxable != null)
         {
-            //put object in box and desactivate
-            boxable.gameObject.transform.parent = gameObject.transform;
-            boxable.gameObject.SetActive(false);
+            _current_boxable = boxable;
+            var boxable_throwable = other.gameObject.GetComponent<Valve.VR.InteractionSystem.Throwable>();
+            boxable_throwable.onDetachFromHand.AddListener(OnDetach);
 
-            _box.ChangeStateClosed();
-            
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (_box.State != BoxState.opened)
+            return;
+
+        Boxable boxable = other.gameObject.GetComponent<Boxable>();
+        if (boxable != null)
+        {
+            _current_boxable = null;
+            var boxable_throwable = other.gameObject.GetComponent<Valve.VR.InteractionSystem.Throwable>();
+            boxable_throwable.onDetachFromHand.RemoveListener(OnDetach);
+
+        }
+    }
+
+    private void OnDetach()
+    {
+        //put object in box and desactivate
+        _current_boxable.gameObject.transform.parent = gameObject.transform;
+        _current_boxable.gameObject.SetActive(false);
+
+        _box.ChangeStateClosed();
     }
 }
