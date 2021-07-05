@@ -28,9 +28,9 @@ public class Box : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+
     }
 
     public void ChangeStateClosed()
