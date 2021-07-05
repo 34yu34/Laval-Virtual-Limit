@@ -3,20 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-// is throwable and frozen, but when taken, duplicate itself.
-[RequireComponent(typeof(Throwable))]
 public class Duplicator : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _to_spawn;
     private Rigidbody _rb;
-    private bool duplicated = false;
     private Vector3 init_pos;
     private Quaternion init_rot;
+    private int n_colliders_in = 0;
 
     public void Start()
     {
+        disable_colliders();
         setup_initial_transform();
         setup_rb();
-        set_callbacks();
+    }
+
+    private void disable_colliders()
+    {
+        var collider_list = GetComponents<Collider>();
+        foreach (var collider in collider_list)
+        {
+            collider.isTrigger = true;
+        }
     }
 
     private void setup_rb()
@@ -31,32 +40,10 @@ public class Duplicator : MonoBehaviour
         init_rot = transform.rotation;
     }
 
-    private void set_callbacks()
+    private void spawn()
     {
-        var throwable_comp = GetComponent<Throwable>();
-        throwable_comp.onPickUp.AddListener(OnGrab);
-        throwable_comp.onDetachFromHand.AddListener(OnDrop);
-    }
-
-    public void OnGrab()
-    {
-        if(duplicated)
-        {
-            return;
-        }
-        duplicate();
-    }
-
-    public void OnDrop()
-    {
-        allow_movement();
-    }
-
-    private void duplicate()
-    {
-        var next_duplicator = Instantiate<GameObject>(gameObject);
-        set_init_params(next_duplicator);
-        duplicated = true;
+        var spawned_item = Instantiate<GameObject>(_to_spawn);
+        set_init_params(spawned_item);
     }
 
     private void set_init_params(GameObject next_duplicator)
@@ -66,8 +53,27 @@ public class Duplicator : MonoBehaviour
         next_duplicator.transform.rotation = init_rot;
     }
 
-    private void allow_movement()
+    private void OnTriggerEnter(Collider other)
     {
-        _rb.isKinematic = false;
+        if (other.GetComponentInParent<HandCollider>() == null && other.GetComponentInParent<Box>() == null)
+        {
+            return;
+        }
+        n_colliders_in++;
+        if( n_colliders_in != 1 || other.GetComponentInParent<Box>() != null)
+        {
+            return;
+        }
+        spawn();
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponentInParent<HandCollider>() == null && other.GetComponentInParent<Box>() == null)
+        {
+            return;
+        }
+        n_colliders_in--;
+    }
+
 }
