@@ -57,6 +57,11 @@ public class Tape : MonoBehaviour
         {
             reset_line_position();
         }
+
+        if (_tape_timestamp < Time.fixedTime)
+        {
+            destroy_line();
+        }
     }
 
     public void TapedContact(TapedPoint taped_point)
@@ -86,6 +91,8 @@ public class Tape : MonoBehaviour
 
         _state = TapingState.Taping;
 
+        _tape_timestamp = Time.fixedTime + _max_tape_time;
+
         reset_line_position();
     }
 
@@ -97,13 +104,23 @@ public class Tape : MonoBehaviour
 
     private void finish_taping(Box box)
     {
+        destroy_line();
+
+        box.ChangeStateTaped();
+        box.Priceable.SetTapedBoxPrice();
+    }
+
+    private void destroy_line()
+    {
+        if (_current_tape_line == null)
+        {
+            return;
+        }
+
         Destroy(_current_tape_line.gameObject);
         _current_tape_line = null;
         start_point = null;
 
         _state = TapingState.Stoped;
-
-        box.ChangeStateTaped();
-        box.Priceable.SetTapedBoxPrice();
     }
 }

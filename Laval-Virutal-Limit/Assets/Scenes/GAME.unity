@@ -324,14 +324,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3034362324893859432, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3034362324893859432, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 5801596134345424960, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -342,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5801596134345424960, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7837
+      value: 0.9414
       objectReference: {fileID: 0}
     - target: {fileID: 5801596134345424960, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
       propertyPath: m_LocalPosition.z
@@ -379,14 +371,6 @@ PrefabInstance:
     - target: {fileID: 5801596134345424961, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
       propertyPath: m_Name
       value: Tape
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631147142077228828, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
-      propertyPath: m_Size.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631147142077228828, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
-      propertyPath: m_Size.z
-      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03f5ca7868bc75a4eaaeff4a289a28df, type: 3}
