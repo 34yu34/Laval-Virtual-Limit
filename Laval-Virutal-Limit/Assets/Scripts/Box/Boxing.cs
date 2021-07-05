@@ -8,6 +8,7 @@ public class Boxing : MonoBehaviour
 {
     private Box _box;
     private Boxable _current_boxable;
+    private int n_colliders_in = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +30,10 @@ public class Boxing : MonoBehaviour
         Boxable boxable = other.gameObject.GetComponent<Boxable>();
         if (boxable != null)
         {
+            n_colliders_in++;
             _current_boxable = boxable;
             var boxable_throwable = other.gameObject.GetComponent<Valve.VR.InteractionSystem.Throwable>();
             boxable_throwable.onDetachFromHand.AddListener(OnDetach);
-
         }
     }
 
@@ -44,6 +45,10 @@ public class Boxing : MonoBehaviour
         Boxable boxable = other.gameObject.GetComponent<Boxable>();
         if (boxable != null)
         {
+            if(--n_colliders_in > 0)
+            {
+                return;
+            }
             _current_boxable = null;
             var boxable_throwable = other.gameObject.GetComponent<Valve.VR.InteractionSystem.Throwable>();
             boxable_throwable.onDetachFromHand.RemoveListener(OnDetach);
