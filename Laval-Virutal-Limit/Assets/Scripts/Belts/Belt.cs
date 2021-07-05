@@ -10,6 +10,8 @@ public class Belt : MonoBehaviour
     [SerializeField]
     private ConveyorSpawner _spawner;
 
+    private int _curr_index = 0;
+
     [SerializeField]
     private float _time_between_object;
 
@@ -22,8 +24,12 @@ public class Belt : MonoBehaviour
         {
             _next_object_spawn_timestamp = _time_between_object + Time.fixedTime;
 
-            _spawner.ItemToSpawn = _wrappable_to_spawn[0];
+            select_next_item();
         }
     }
 
+    private void select_next_item()
+    {
+        _spawner.ItemToSpawn = _wrappable_to_spawn[_curr_index++ % _wrappable_to_spawn.Length];
+    }
 }
