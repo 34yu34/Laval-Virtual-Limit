@@ -20,10 +20,35 @@ public class Tape : MonoBehaviour
 
     private TapingState _state;
 
+    private Throwable _throwable;
+    public Throwable Throwable => _throwable ??= GetComponent<Throwable>();
+
+    private Rigidbody _rb;
+    public Rigidbody Rb => _rb ??= GetComponent<Rigidbody>();
+
+    public Vector3 initial_pos;
+    public Quaternion intial_rotation; 
+
     public enum TapingState
     {
         Stoped,
         Taping
+    }
+
+    public void Start()
+    {
+        initial_pos = transform.position;
+        intial_rotation = transform.rotation;
+
+        Rb.constraints = RigidbodyConstraints.FreezeAll;
+        Throwable.onDetachFromHand.AddListener(detach_from_hand);
+        
+    }
+
+    private void detach_from_hand()
+    {
+        transform.position = initial_pos;
+        transform.rotation = intial_rotation;
     }
 
     private void FixedUpdate()

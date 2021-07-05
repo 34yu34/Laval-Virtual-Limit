@@ -56,8 +56,6 @@ public class ConveyorSpawner : MonoBehaviour
             MoneyManager.Instance.Pay(wrappable.Priceable.SpawnPrice);
 
             ItemToSpawn = null;
-
-
         }
     }
 }
