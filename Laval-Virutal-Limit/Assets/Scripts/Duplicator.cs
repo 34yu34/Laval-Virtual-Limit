@@ -11,7 +11,7 @@ public class Duplicator : MonoBehaviour
     [SerializeField]
     private GameObject _to_spawn;
 
-    private Renderer _renderer;
+    private Renderer[] renderer_list;
     private Rigidbody _rb;
     private Vector3 init_pos;
     private Quaternion init_rot;
@@ -23,14 +23,17 @@ public class Duplicator : MonoBehaviour
         disable_colliders();
         setup_initial_transform();
         setup_rb();
-        _renderer = GetComponentInChildren<Renderer>();
+        renderer_list = GetComponentsInChildren<Renderer>();
     }
 
     private void Update()
     {
         if(Time.time > time_to_render)
         {
-            _renderer.enabled = true;
+            foreach(var renderer in renderer_list)
+            {
+                renderer.enabled = true;
+            }
         }
 
         if(n_colliders_in > 0)
@@ -65,7 +68,10 @@ public class Duplicator : MonoBehaviour
     {
         var spawned_item = Instantiate<GameObject>(_to_spawn);
         set_init_params(spawned_item);
-        _renderer.enabled = false;
+        foreach(var renderer in renderer_list)
+        {
+            renderer.enabled = false;
+        }
         time_to_render = Time.time + delay_to_spawn;
     }
 
