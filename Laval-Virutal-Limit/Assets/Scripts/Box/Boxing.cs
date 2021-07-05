@@ -28,7 +28,7 @@ public class Boxing : MonoBehaviour
             return;
 
         Boxable boxable = other.gameObject.GetComponent<Boxable>();
-        if (boxable != null)
+        if (boxable != null && boxable.Sizeable.Size <= _box.Sizeable.Size)
         {
             n_colliders_in++;
             _current_boxable = boxable;

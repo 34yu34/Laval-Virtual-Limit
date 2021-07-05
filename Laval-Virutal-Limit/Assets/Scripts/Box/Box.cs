@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Sizeable))]
 public class Box : MonoBehaviour
 {
     private BoxState _state;
@@ -20,6 +21,10 @@ public class Box : MonoBehaviour
     TapedPoint[] taped_points;
 
     GameObject _current_box;
+
+    private Sizeable _sizeable;
+    public Sizeable Sizeable => _sizeable ??= GetComponent<Sizeable>();
+
 
     // Start is called before the first frame update
     void Start()
