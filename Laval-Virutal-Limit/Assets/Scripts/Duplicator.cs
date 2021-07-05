@@ -5,18 +5,39 @@ using Valve.VR.InteractionSystem;
 
 public class Duplicator : MonoBehaviour
 {
+
+    [SerializeField]
+    private float delay_to_spawn = 1f;
     [SerializeField]
     private GameObject _to_spawn;
+
+    private Renderer _renderer;
     private Rigidbody _rb;
     private Vector3 init_pos;
     private Quaternion init_rot;
     private int n_colliders_in = 0;
+    private float time_to_render;
 
     public void Start()
     {
         disable_colliders();
         setup_initial_transform();
         setup_rb();
+        _renderer = GetComponentInChildren<Renderer>();
+    }
+
+    private void Update()
+    {
+        if(Time.time > time_to_render)
+        {
+            _renderer.enabled = true;
+        }
+
+        if(n_colliders_in > 0)
+        {
+            time_to_render = Time.time + delay_to_spawn;
+        }
+         
     }
 
     private void disable_colliders()
@@ -44,6 +65,8 @@ public class Duplicator : MonoBehaviour
     {
         var spawned_item = Instantiate<GameObject>(_to_spawn);
         set_init_params(spawned_item);
+        _renderer.enabled = false;
+        time_to_render = Time.time + delay_to_spawn;
     }
 
     private void set_init_params(GameObject next_duplicator)
