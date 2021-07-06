@@ -25,34 +25,33 @@ public class MoneyManager : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private TextMesh text;
+    private void Start()
+    {
+        DontDestroyOnLoad(Instance);
+    }
 
-    private int _bank = 0;
+    private int _entity_count = 0;
+    private int _note_sum = 0;
+
+    public int Note => _note_sum / _entity_count;
 
     private int bank
     {
-        get => _bank;
+        get => _entity_count;
         set
         {
-            _bank = value;
-            on_change();
+            _entity_count = value;
         }
-    }
-
-    private void on_change()
-    {
-        text.text = $"account balance:\n{bank}€";
     }
 
     public void Pay(int cost)
     {
-        bank -= cost;
+        bank += cost;
     }
 
     public void Sell(int price)
     {
-        bank += price;
+        _note_sum += price;
     }
 
 }

@@ -309,8 +309,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _untaped_box_rate: 0.75
   _taped_box_profit_rate: 0.1
-  _spawn_price: 60
-  _sell_price: 30
+  _spawn_price: 1
+  _sell_price: 50
 --- !u!1001 &8677786085971073130
 PrefabInstance:
   m_ObjectHideFlags: 0

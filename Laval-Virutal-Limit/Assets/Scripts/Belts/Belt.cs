@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class Belt : MonoBehaviour
 
     [SerializeField]
     private ConveyorSpawner _spawner;
+
+    [SerializeField]
+    private Destroyer _destroyer;
 
     private int _curr_index = 0;
 
@@ -24,11 +28,45 @@ public class Belt : MonoBehaviour
     private float _delay_at_the_end;
 
     [SerializeField]
+    private float _start_delay;
+
+    private float _start_timestamp;
+
+    [SerializeField]
     private string _next_scene;
 
     public int ItemsLeft => _wrappable_to_spawn.Length - _curr_index;
 
+    private void Start()
+    {
+        _start_timestamp = _start_delay + Time.fixedTime;
+    }
+
     private void FixedUpdate()
+    {
+        if (_start_timestamp > Time.fixedTime)
+        {
+            return;
+        }
+
+        check_object_to_spawn();
+
+        if (_last_object_spawn_timestamp != 0)
+        {
+            check_game_timer();
+            check_all_object_destroyed();
+        }
+    }
+
+    private void check_all_object_destroyed()
+    {
+        if (_destroyer.DestroyedItemCount == _wrappable_to_spawn.Length)
+        {
+            change_scene();
+        }
+    }
+
+    private void check_object_to_spawn()
     {
         if (_next_object_spawn_timestamp < Time.fixedTime && _last_object_spawn_timestamp == 0)
         {
@@ -36,13 +74,19 @@ public class Belt : MonoBehaviour
 
             select_next_item();
         }
-        if(_last_object_spawn_timestamp != 0)
+    }
+
+    private void check_game_timer()
+    {
+        if (Time.fixedTime - _last_object_spawn_timestamp > _delay_at_the_end)
         {
-            if(Time.fixedTime - _last_object_spawn_timestamp > _delay_at_the_end)
-            {
-                SceneManager.LoadScene(_next_scene);
-            }
+            change_scene();
         }
+    }
+
+    private void change_scene()
+    {
+        SceneManager.LoadScene(_next_scene);
     }
 
     private void select_next_item()
@@ -51,8 +95,6 @@ public class Belt : MonoBehaviour
         if (_curr_index >= _wrappable_to_spawn.Length)
         {
             _last_object_spawn_timestamp = Time.fixedTime;
-
         }
-
     }
 }
