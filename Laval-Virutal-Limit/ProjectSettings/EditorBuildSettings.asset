@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LOBBY_PRE_GAME.unity
+    guid: 737541bc9dfcbc746a355cfd4cde6ea5
+  - enabled: 1
     path: Assets/Scenes/GAME.unity
     guid: 0c16ff666438eca468cafe17197bbeef
   - enabled: 1
-    path: Assets/Scenes/Gym_Audrey.unity
-    guid: 121b932fe1b963745b656989ae135ddd
+    path: Assets/Scenes/LOGGY_POST_GAME.unity
+    guid: 953474a4d0c9b654692d81827cf4af77
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 66c35a11e7470394280190234536f32b, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fcfc72dd2a690ba44903887b578d7afc, type: 2}
