@@ -38,10 +38,15 @@ public class Belt : MonoBehaviour
         }
         if(_last_object_spawn_timestamp != 0)
         {
-            if(Time.fixedTime - _last_object_spawn_timestamp > _delay_at_the_end)
-            {
-                SceneManager.LoadScene(_next_scene);
-            }
+            check_game_timer();
+        }
+    }
+
+    private void check_game_timer()
+    {
+        if (Time.fixedTime - _last_object_spawn_timestamp > _delay_at_the_end)
+        {
+            SceneManager.LoadScene(_next_scene);
         }
     }
 
