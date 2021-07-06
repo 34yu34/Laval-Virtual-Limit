@@ -9,11 +9,17 @@ public class ConveyorSpawner : MonoBehaviour
     [SerializeField]
     private ConveyorPad _pad;
 
-    [SerializeField]
-    private float _time_between_spawn;
+    private float _time_between_spawn => _pad.transform.localScale.x * 10 * 1.5f / _speed;
 
     [SerializeField]
     private float _speed;
+
+    public float Speed
+    {
+        get => _speed;
+        set => _speed = value;
+    }
+
 
     public Wrappable ItemToSpawn { get; set; }
 
