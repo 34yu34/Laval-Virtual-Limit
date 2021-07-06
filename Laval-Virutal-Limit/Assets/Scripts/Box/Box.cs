@@ -71,6 +71,19 @@ public class Box : MonoBehaviour
         _current_box.transform.localScale = Vector3.one;
     }
 
+    public TapedPoint OtherPoint(TapedPoint curr_points)
+    {
+        foreach (var pt in taped_points)
+        {
+            if (pt.Box == curr_points.Box && pt != curr_points)
+            {
+                return pt;
+            }
+        }
+
+        return null;
+    }
+
     private void SetPointActive(bool val)
     {
         foreach (var pt in taped_points)

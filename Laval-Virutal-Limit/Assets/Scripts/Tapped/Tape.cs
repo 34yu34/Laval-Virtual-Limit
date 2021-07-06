@@ -13,9 +13,14 @@ public class Tape : MonoBehaviour
     [SerializeField]
     private LineRenderer _tape_line;
 
+    [SerializeField]
+    private float _angle_to_touch = 2f;
+
     private LineRenderer _current_tape_line;
 
-    private TapedPoint start_point;
+    private TapedPoint _start_point;
+
+    private TapedPoint _end_point;
 
     private float _tape_timestamp;
 
@@ -57,7 +62,7 @@ public class Tape : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_current_tape_line != null && start_point != null)
+        if (_current_tape_line != null && _start_point != null)
         {
             reset_line_position();
             send_raycast();
@@ -78,7 +83,7 @@ public class Tape : MonoBehaviour
 
         if (_state == TapingState.Taping)
         {
-            if (taped_point == start_point || taped_point.Box != start_point.Box)
+            if (taped_point == _start_point || taped_point.Box != _start_point.Box)
             {
                 return;
             }
@@ -92,7 +97,8 @@ public class Tape : MonoBehaviour
         _current_tape_line = Instantiate(_tape_line);
         _current_tape_line.transform.position = Vector3.zero;
 
-        start_point = at;
+        _start_point = at;
+        _end_point = at.GetPeer();
 
         _state = TapingState.Taping;
 
@@ -106,23 +112,20 @@ public class Tape : MonoBehaviour
     private void reset_line_position()
     {
         _current_tape_line.SetPosition(0, transform.position);
-        _current_tape_line.SetPosition(1, start_point.transform.position);
+        _current_tape_line.SetPosition(1, _start_point.transform.position);
     }
 
     private void send_raycast()
     {
-        Vector3 direction = start_point.transform.position - transform.position;
+        Vector3 tape_line = _start_point.transform.position - transform.position;
 
-        RaycastHit hit;
+        Vector3 optimal_line = _start_point.transform.position - _end_point.transform.position;
 
-        if (Physics.Raycast(transform.position, direction, out hit, direction.magnitude))
+        if (Vector3.Angle(tape_line, optimal_line) < _angle_to_touch && tape_line.magnitude > optimal_line.magnitude)
         {
-            var point = hit.collider.GetComponent<TapedPoint>();
-            if (point != null && point != start_point && point.Box == start_point.Box)
-            {
-                finish_taping(point.Box);
-            }
+            finish_taping(_start_point.Box);
         }
+
     }
 
     private void finish_taping(Box box)
@@ -142,7 +145,8 @@ public class Tape : MonoBehaviour
 
         Destroy(_current_tape_line.gameObject);
         _current_tape_line = null;
-        start_point = null;
+        _start_point = null;
+        _end_point = null;
 
         _state = TapingState.Stoped;
     }
