@@ -24,8 +24,9 @@ public class Destroyer : BeltBehaviour
         ConveyorPad pad = other.GetComponent<ConveyorPad>();
         if (pad != null)
         {
-            if (pad.Link != null)
+            if (pad.Link != null && pad.Link.Wrappable != null)
             {
+
                 MoneyManager.Instance.Sell(pad.Link.Wrappable.Priceable.SellPrice);
 
                 count_destroyed_object(pad);

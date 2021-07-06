@@ -9,6 +9,7 @@ public class Boxing : MonoBehaviour
 {
     private Box _box;
     private Boxable _current_boxable;
+    private bool _has_right_box;
     private int n_colliders_in = 0;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,8 @@ public class Boxing : MonoBehaviour
         {
             n_colliders_in++;
             _current_boxable = boxable;
+
+            _has_right_box = _box.Sizeable.Size == boxable.Sizeable.Size;
 
             if (boxable.GetComponentInParent<Hand>() != null)
             {
@@ -73,6 +76,8 @@ public class Boxing : MonoBehaviour
 
         _box.ChangeStateClosed();
 
-        _box.Priceable.SetOpenBoxPrice(_current_boxable.Priceable.SpawnPrice);
+        _box.Priceable.SetOpenBoxPrice(_current_boxable.Priceable.SpawnPrice, _has_right_box);
+
+        Destroy(_current_boxable.gameObject);
     }
 }

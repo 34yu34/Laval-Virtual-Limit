@@ -21,11 +21,14 @@ public class ShowItemCount : MonoBehaviour
             on_change();
         }
     }
+<<<<<<< HEAD
     // Start is called before the first frame update
     void Start()
     {
         current_count = _belt.ItemsLeft;
     }
+=======
+>>>>>>> lobby
 
     // Update is called once per frame
     void Update()

@@ -20,13 +20,18 @@ public class Priceable : MonoBehaviour
 
     public int SellPrice => _sell_price;
 
-    public void SetOpenBoxPrice(int item_price)
+    private bool _is_right = true;
+
+    public void SetOpenBoxPrice(int item_price, bool has_right_box)
     {
-        _sell_price = 75;
+        _sell_price = has_right_box ? 75 : 65;
+        _is_right = has_right_box;
+
+
     }
 
     public void SetTapedBoxPrice()
     {
-        _sell_price =  100;
+        _sell_price = _is_right ? 100 : 90;
     }
 }
