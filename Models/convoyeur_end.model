@@ -1,0 +1,11 @@
+# Made using Asset Forge (2.1.2)
+
+:materials
+
+[name:bricksDark;color:RGBA(0.878, 0.271, 0.271, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+[name:bricks;color:RGBA(1.000, 0.392, 0.306, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+
+:models
+
+[name:;collection:Buildings;type:detail_balcony;position:(-0.4700, 0.9000, 0.0000);rotation:(270.0000, 270.0000, 0.0000);scale:(1.0000, 1.9000, 1.0000);group:;locked:False;hidden:False;materials:bricksDark+bricks;]
+[name:;collection:Buildings;type:detail_balcony;position:(-0.4700, -0.1000, 0.0000);rotation:(90.0000, 270.0000, 0.0000);scale:(1.0000, -1.9000, 1.0000);group:;locked:False;hidden:False;materials:bricksDark+bricks;]
