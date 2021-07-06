@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _max_tape_time: 2
   _tape_line: {fileID: 7104065420493494731, guid: a2f1c72ce25f868458d2066e49aad6d6, type: 3}
+  _angle_to_touch: 5
   initial_pos: {x: 0, y: 0, z: 0}
   intial_rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &7631147142077228828
@@ -198,8 +199,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 83145015e96be4641b7eeb74e4bbccaf, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 0.533
   m_Pitch: 1
   Loop: 0

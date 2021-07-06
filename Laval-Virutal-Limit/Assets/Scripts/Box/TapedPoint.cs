@@ -24,4 +24,9 @@ public class TapedPoint : MonoBehaviour
 
     }
 
+    public TapedPoint GetPeer()
+    {
+        return Box.OtherPoint(this);
+    }
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 
 [RequireComponent(typeof(Collider))]
@@ -28,12 +29,20 @@ public class Boxing : MonoBehaviour
             return;
 
         Boxable boxable = other.gameObject.GetComponent<Boxable>();
+
         if (boxable != null && boxable.Sizeable.Size <= _box.Sizeable.Size)
         {
             n_colliders_in++;
             _current_boxable = boxable;
-            var boxable_throwable = other.gameObject.GetComponent<Valve.VR.InteractionSystem.Throwable>();
-            boxable_throwable.onDetachFromHand.AddListener(OnDetach);
+
+            if (boxable.GetComponentInParent<Hand>() != null)
+            {
+                var boxable_throwable = other.gameObject.GetComponent<Throwable>();
+                boxable_throwable.onDetachFromHand.AddListener(OnDetach);
+                return;
+            }
+
+            OnDetach();
         }
     }
 
