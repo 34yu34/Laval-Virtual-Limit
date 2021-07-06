@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2949142904621192452}
   - component: {fileID: 3651470153819922052}
   - component: {fileID: 1722175739772891466}
+  - component: {fileID: 2119984171186683587}
+  - component: {fileID: 3145884282171209551}
   m_Layer: 0
   m_Name: Speaker
   m_TagString: Untagged
@@ -196,6 +198,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bad9d3ddd7f0c84a9290f9c36264259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2119984171186683587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604909972398023983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1e7001f7c7cf5419b47934d4a19540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _size: 1
+--- !u!114 &3145884282171209551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604909972398023983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84bee666830186f489589f8fd1c994f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _untaped_box_rate: 0.75
+  _taped_box_profit_rate: 0.1
+  _spawn_price: 1
+  _sell_price: 50
 --- !u!1001 &770839326619242561
 PrefabInstance:
   m_ObjectHideFlags: 0
