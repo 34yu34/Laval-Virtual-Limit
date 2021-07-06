@@ -40,6 +40,21 @@ public class Belt : MonoBehaviour
     private void Start()
     {
         _start_timestamp = _start_delay + Time.fixedTime;
+        _load_start_informations();
+    }
+
+    private void _load_start_informations()
+    {
+        if (GameInfoManager.Instance == null)
+        {
+            return;
+        }
+
+        _delay_at_the_end = GameInfoManager.Instance._end_delay;
+        _start_delay = GameInfoManager.Instance._start_delay;
+        _wrappable_to_spawn = GameInfoManager.Instance._spawn_items_list;
+        _time_between_object =  GameInfoManager.Instance._time_between_items;
+        _spawner.Speed = GameInfoManager.Instance._belt_speed;
     }
 
     private void FixedUpdate()
