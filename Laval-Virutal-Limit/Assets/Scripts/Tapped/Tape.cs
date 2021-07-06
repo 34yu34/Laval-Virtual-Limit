@@ -60,6 +60,7 @@ public class Tape : MonoBehaviour
         if (_current_tape_line != null && start_point != null)
         {
             reset_line_position();
+            send_raycast();
         }
 
         if (_tape_timestamp < Time.fixedTime)
@@ -106,6 +107,22 @@ public class Tape : MonoBehaviour
     {
         _current_tape_line.SetPosition(0, transform.position);
         _current_tape_line.SetPosition(1, start_point.transform.position);
+    }
+
+    private void send_raycast()
+    {
+        Vector3 direction = start_point.transform.position - transform.position;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, direction, out hit, direction.magnitude))
+        {
+            var point = hit.collider.GetComponent<TapedPoint>();
+            if (point != null && point != start_point && point.Box == start_point.Box)
+            {
+                finish_taping(point.Box);
+            }
+        }
     }
 
     private void finish_taping(Box box)
