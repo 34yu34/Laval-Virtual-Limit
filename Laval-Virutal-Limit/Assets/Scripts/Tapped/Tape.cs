@@ -35,7 +35,7 @@ public class Tape : MonoBehaviour
     public Vector3 initial_pos;
     public Quaternion intial_rotation;
 
-    AudioSource audioData;
+    AudioSource _audio_data;
 
     public enum TapingState
     {
@@ -51,7 +51,7 @@ public class Tape : MonoBehaviour
         Rb.constraints = RigidbodyConstraints.FreezeAll;
         Throwable.onDetachFromHand.AddListener(detach_from_hand);
 
-        audioData = GetComponent<AudioSource>();
+        _audio_data = GetComponent<AudioSource>();
     }
 
     private void detach_from_hand()
@@ -106,7 +106,7 @@ public class Tape : MonoBehaviour
 
         reset_line_position();
 
-        audioData.Play();
+        _audio_data.Play();
     }
 
     private void reset_line_position()
@@ -149,5 +149,7 @@ public class Tape : MonoBehaviour
         _end_point = null;
 
         _state = TapingState.Stoped;
+
+        _audio_data.Stop();
     }
 }
