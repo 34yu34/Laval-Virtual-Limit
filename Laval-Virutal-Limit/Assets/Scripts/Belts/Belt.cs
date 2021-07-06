@@ -55,10 +55,7 @@ public class Belt : MonoBehaviour
         _wrappable_to_spawn = GameInfoManager.Instance._spawn_items_list;
         _time_between_object =  GameInfoManager.Instance._time_between_items;
         _spawner.Speed = GameInfoManager.Instance._belt_speed;
-<<<<<<< HEAD
-=======
         Destroy(GameInfoManager.Instance.gameObject);
->>>>>>> lobby
     }
 
     private void FixedUpdate()

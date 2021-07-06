@@ -343,11 +343,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b9ff4cf35df7eaa4a93f43b06eeb3a9f, type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 16
-=======
-      value: 15
->>>>>>> lobby
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b9ff4cf35df7eaa4a93f43b06eeb3a9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -500,8 +496,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516759973}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &562686257
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +589,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> lobby
 --- !u!1001 &593036506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -605,11 +598,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b9ff4cf35df7eaa4a93f43b06eeb3a9f, type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-      value: 2
-=======
       value: 1
->>>>>>> lobby
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b9ff4cf35df7eaa4a93f43b06eeb3a9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -867,11 +856,7 @@ Transform:
   m_GameObject: {fileID: 1090942389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.81, y: 0, z: 0}
-<<<<<<< HEAD
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-=======
-  m_LocalScale: {x: 0.028679378, y: 0.028679378, z: 0.028679378}
->>>>>>> lobby
   m_Children: []
   m_Father: {fileID: 992364382}
   m_RootOrder: 0
@@ -893,11 +878,7 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 1
   m_TabSize: 4
-<<<<<<< HEAD
-  m_FontSize: 15
-=======
   m_FontSize: 100
->>>>>>> lobby
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 0}
