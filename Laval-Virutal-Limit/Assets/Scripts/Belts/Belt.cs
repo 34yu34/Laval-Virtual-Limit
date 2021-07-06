@@ -24,12 +24,27 @@ public class Belt : MonoBehaviour
     private float _delay_at_the_end;
 
     [SerializeField]
+    private float _start_delay;
+
+    private float _start_timestamp;
+
+    [SerializeField]
     private string _next_scene;
 
     public int ItemsLeft => _wrappable_to_spawn.Length - _curr_index;
 
+    private void Start()
+    {
+        _start_timestamp = _start_delay + Time.fixedTime;
+    }
+
     private void FixedUpdate()
     {
+        if (_start_timestamp > Time.fixedTime)
+        {
+            return;
+        }
+
         if (_next_object_spawn_timestamp < Time.fixedTime && _last_object_spawn_timestamp == 0)
         {
             _next_object_spawn_timestamp = _time_between_object + Time.fixedTime;

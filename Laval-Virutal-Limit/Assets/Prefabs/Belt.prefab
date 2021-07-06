@@ -54,7 +54,8 @@ MonoBehaviour:
   - {fileID: 1722175739772891466, guid: c146b6d46569506409f560f03bc4dbe0, type: 3}
   _spawner: {fileID: 3910697222119205891}
   _time_between_object: 6
-  _delay_at_the_end: 30
+  _delay_at_the_end: 50
+  _start_delay: 10
   _next_scene: Gym_Audrey
 --- !u!54 &6649602442524618666
 Rigidbody:
