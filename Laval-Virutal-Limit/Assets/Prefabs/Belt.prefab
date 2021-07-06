@@ -50,7 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wrappable_to_spawn:
   - {fileID: 1740229140699474888, guid: 809f0ecfb103b7b48a0ae995c98fad1c, type: 3}
-  - {fileID: 5967261268249699869, guid: f0d3cce8881373245ad5e6e9744c733d, type: 3}
   - {fileID: 5911363378046333925, guid: 79a9993ee72af21498d836007b14be88, type: 3}
   - {fileID: 1722175739772891466, guid: c146b6d46569506409f560f03bc4dbe0, type: 3}
   _spawner: {fileID: 3910697222119205891}

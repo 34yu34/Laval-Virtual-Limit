@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7671238027061201967}
   - component: {fileID: 335038968618044896}
   - component: {fileID: 5967261268249699869}
+  - component: {fileID: 50672912481611723}
+  - component: {fileID: 1606855401648997505}
   m_Layer: 0
   m_Name: Radio
   m_TagString: Untagged
@@ -170,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.3, z: 0.15}
-  m_Center: {x: 0, y: 0.15, z: 0}
+  m_Size: {x: 0.55, y: 0.25, z: 0.1}
+  m_Center: {x: 0, y: 0.125, z: 0.025}
 --- !u!114 &335038968618044896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +198,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bad9d3ddd7f0c84a9290f9c36264259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &50672912481611723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49529670448447254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1e7001f7c7cf5419b47934d4a19540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _size: 0
+--- !u!114 &1606855401648997505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49529670448447254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84bee666830186f489589f8fd1c994f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _untaped_box_rate: 0.75
+  _taped_box_profit_rate: 0.1
+  _spawn_price: 0
+  _sell_price: 0
 --- !u!1001 &4240506914080348932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -209,15 +240,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94c9fefdfb980194597d14d5b66bb9d8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94c9fefdfb980194597d14d5b66bb9d8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94c9fefdfb980194597d14d5b66bb9d8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94c9fefdfb980194597d14d5b66bb9d8, type: 3}
       propertyPath: m_LocalPosition.x
