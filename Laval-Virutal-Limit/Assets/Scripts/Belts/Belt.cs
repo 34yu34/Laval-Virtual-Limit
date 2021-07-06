@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class Belt : MonoBehaviour
 
     [SerializeField]
     private ConveyorSpawner _spawner;
+
+    [SerializeField]
+    private Destroyer _destroyer;
 
     private int _curr_index = 0;
 
@@ -45,15 +49,30 @@ public class Belt : MonoBehaviour
             return;
         }
 
+        check_object_to_spawn();
+
+        if (_last_object_spawn_timestamp != 0)
+        {
+            check_game_timer();
+            check_all_object_destroyed();
+        }
+    }
+
+    private void check_all_object_destroyed()
+    {
+        if (_destroyer.DestroyedItemCount == _wrappable_to_spawn.Length)
+        {
+            change_scene();
+        }
+    }
+
+    private void check_object_to_spawn()
+    {
         if (_next_object_spawn_timestamp < Time.fixedTime && _last_object_spawn_timestamp == 0)
         {
             _next_object_spawn_timestamp = _time_between_object + Time.fixedTime;
 
             select_next_item();
-        }
-        if(_last_object_spawn_timestamp != 0)
-        {
-            check_game_timer();
         }
     }
 
@@ -61,8 +80,13 @@ public class Belt : MonoBehaviour
     {
         if (Time.fixedTime - _last_object_spawn_timestamp > _delay_at_the_end)
         {
-            SceneManager.LoadScene(_next_scene);
+            change_scene();
         }
+    }
+
+    private void change_scene()
+    {
+        SceneManager.LoadScene(_next_scene);
     }
 
     private void select_next_item()
@@ -71,8 +95,6 @@ public class Belt : MonoBehaviour
         if (_curr_index >= _wrappable_to_spawn.Length)
         {
             _last_object_spawn_timestamp = Time.fixedTime;
-
         }
-
     }
 }

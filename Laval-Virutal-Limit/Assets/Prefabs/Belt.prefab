@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 5911363378046333925, guid: 79a9993ee72af21498d836007b14be88, type: 3}
   - {fileID: 1722175739772891466, guid: c146b6d46569506409f560f03bc4dbe0, type: 3}
   _spawner: {fileID: 3910697222119205891}
+  _destroyer: {fileID: 3910697221065122625}
   _time_between_object: 6
   _delay_at_the_end: 50
   _start_delay: 10
